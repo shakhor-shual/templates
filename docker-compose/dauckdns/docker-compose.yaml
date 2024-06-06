@@ -8,7 +8,7 @@ services:
       - PGID=1000 #optional
       - TZ=Etc/UTC #optional
       - SUBDOMAINS=$DDNS_SUBDOMAIN
-      - TOKEN=$DDNS)TOKEN
+      - TOKEN=$DDNS_TOKEN
       - UPDATE_IP=ipv4 #optional
       - LOG_FILE=false #optional
     volumes:
