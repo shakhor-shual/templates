@@ -37,7 +37,7 @@ services:
     image: nginx:1.15.12-alpine
     container_name: webserver
     restart: unless-stopped
-    env_file: domain.env
+    env_file: ./domain.env
     environment:
       - DOMAIN=$DOMAIN
     ports:
@@ -55,7 +55,7 @@ services:
       - webserver
     image: certbot/certbot
     container_name: certbot
-    env_file: domain.env
+    env_file: ./domain.env
     environment:
       - DOMAIN=$DOMAIN
     volumes:
