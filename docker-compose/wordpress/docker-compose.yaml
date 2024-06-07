@@ -37,6 +37,7 @@ services:
     image: nginx:1.15.12-alpine
     container_name: webserver
     restart: unless-stopped
+    env_file: .env
     ports:
       - "80:80"
       - "443:443"
@@ -52,6 +53,7 @@ services:
       - webserver
     image: certbot/certbot
     container_name: certbot
+    env_file: domain.env
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
