@@ -55,7 +55,7 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email admin@shual-gate.duckdns.org --agree-tos --no-eff-email --force-renewal -d your_domain -d www.shual-gate.duckdns.org
+    command: certonly --webroot --webroot-path=/var/www/html --email admin@shual-gate.duckdns.org --agree-tos --no-eff-email --force-renewal -d your_domain -d shual-gate.duckdns.org
 
 volumes:
   certbot-etc:
