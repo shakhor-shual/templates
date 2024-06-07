@@ -37,9 +37,8 @@ services:
     image: nginx:1.15.12-alpine
     container_name: webserver
     restart: unless-stopped
-    env_file: ./domain.env
     environment:
-      - DOMAIN=$DOMAIN
+      - DOMAIN=${DOMAIN}
     ports:
       - "80:80"
       - "443:443"
@@ -55,13 +54,12 @@ services:
       - webserver
     image: certbot/certbot
     container_name: certbot
-    env_file: ./domain.env
     environment:
-      - DOMAIN=$DOMAIN
+      - DOMAIN=${DOMAIN}
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email admin@$DOMAIN --agree-tos --no-eff-email --force-renewal  -d $DOMAIN
+    command: certonly --webroot --webroot-path=/var/www/html --email admin@${DOMAIN} --agree-tos --no-eff-email --force-renewal  -d ${DOMAIN}
 
 volumes:
   certbot-etc:
